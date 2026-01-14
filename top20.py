@@ -1,16 +1,17 @@
 # Импортируем функцию load_and_prepare_data из файла parse.py
 from parse import load_and_prepare_data
 
-# Создаем функцию 
-def calculate_top20_averages():
-    # Результат сохраняем в переменную df (таблица данных)
-    df = load_and_prepare_data("student_success_factors.csv")
-    
+# Создаем функцию с параметром filename
+# Теперь функция принимает имя файла как аргумент
+def calculate_top20_averages(filename="student_success_factors.csv"):
+    # Загружаем данные из указанного файла
+    df = load_and_prepare_data(filename)
+
     # Проверяем, удалось ли загрузить данные
     if df is None or df.empty:
-        print("Ошибка: не удалось загрузить данные.")
+        print(f"Ошибка: не удалось загрузить данные из '{filename}'.")
         return  # Завершаем работу функции
-    
+
     # Сортируем таблицу студентов по столбцу "exam_score" 
     sorted_df = df.sort_values(by="exam_score", ascending=False)
     
