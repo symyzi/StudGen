@@ -2,7 +2,6 @@
 from parse import load_and_prepare_data
 
 # Создаем функцию с параметром filename
-# Теперь функция принимает имя файла как аргумент
 def calculate_top20_averages(filename="student_success_factors.csv"):
     # Загружаем данные из указанного файла
     df = load_and_prepare_data(filename)
