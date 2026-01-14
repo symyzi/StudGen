@@ -3,7 +3,7 @@ import correlation as cor
 from top20 import calculate_top20_averages
 import patterns as pat
 
-df = par.load_and_prepare_data("student_success_factors.csv")
+df = par.parse_pipeline("student_success_factors.csv")
 print(df)
 print("\nЗапуск анализа топ-20 студентов: \n")
 calculate_top20_averages(df)
