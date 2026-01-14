@@ -96,7 +96,7 @@ def clean_and_encode(df: pd.DataFrame) -> pd.DataFrame:
 
 def export_clean_data(
     df: pd.DataFrame,
-    path: str = "data/cleaned_students.csv"
+    path: str = "cleaned_students.csv"
 ) -> None:
     """
     Сохраняет очищенный датасет в CSV
