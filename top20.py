@@ -1,15 +1,8 @@
 # Импортируем функцию load_and_prepare_data из файла parse.py
-from parse import load_and_prepare_data
+import pandas as pd
 
 # Создаем функцию с параметром filename
-def calculate_top20_averages(filename="student_success_factors.csv"):
-    # Загружаем данные из указанного файла
-    df = load_and_prepare_data(filename)
-
-    # Проверяем, удалось ли загрузить данные
-    if df is None or df.empty:
-        print(f"Ошибка: не удалось загрузить данные из '{filename}'.")
-        return  # Завершаем работу функции
+def calculate_top20_averages(df: pd.DataFrame):
 
     # Сортируем таблицу студентов по столбцу "exam_score" 
     sorted_df = df.sort_values(by="exam_score", ascending=False)
@@ -45,7 +38,7 @@ def calculate_top20_averages(filename="student_success_factors.csv"):
     print(f"Средний балл за экзамен: {avg_exam_score:.2f}")
     
     # Выводим среднее время учебы
-    print(f"Среднее время учебы: {avg_study_hours:.2f} часов/день")
+    print(f"Среднее время учебы: {avg_study_hours:.2f} часов/неделю")
     
     # Выводим среднее время сна
     print(f"Среднее время сна: {avg_sleep_hours:.2f} часов/день")
